@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force vs Time Graph</title>
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="forceChart" width="400" height="400"></canvas>
+
+    <script>
+        // Sample data for force vs time
+        const time = [0, 1, 2, 3, 4, 5]; // Time in seconds
+        const force = [0, 10, 20, 15, 25, 30]; // Force in Newtons
+
+        // Create a chart
+        const ctx = document.getElementById('forceChart').getContext('2d');
+        const forceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: time,
+                datasets: [{
+                    label: 'Force vs Time',
+                    data: force,
+                    borderColor: 'blue',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)', // Transparent fill color
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time (s)'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Force (N)'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
